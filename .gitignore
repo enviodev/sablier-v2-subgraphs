@@ -2,7 +2,6 @@
 **/build
 **/dist
 **/static
-**/generated
 
 packages/*/subgraph.yaml
 
