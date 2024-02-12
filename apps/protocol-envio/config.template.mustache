@@ -110,24 +110,14 @@ contracts:
           - name: Stream
           - name: Watcher
 networks:
-  {{#chains}}
-  - id: {{id}}
-    start_block: {{start_block}}
+  - id: 11155111
+    start_block: 4067889
     contracts:
       - name: LockupV20
         address:
-          {{#V20.linear}}
-          - {{address}}
-          {{/V20.linear}}
-          {{#V20.dynamic}}
-          - {{address}}
-          {{/V20.dynamic}}
+          - 0xd4300c5bc0b9e27c73ebabdc747ba990b1b570db
+          - 0x421e1e7a53ff360f70a2d02037ee394fa474e035
       - name: LockupV21
         address:
-          {{#V21.linear}}
-          - {{address}}
-          {{/V21.linear}}
-          {{#V21.dynamic}}
-          - {{address}}
-          {{/V21.dynamic}}
-   {{/chains}}
+          - 0x7a43f8a888fa15e68c103e18b0439eb1e98e4301
+          - 0xc9940ad8f43aad8e8f33a4d5dbbf0a8f7ff4429a

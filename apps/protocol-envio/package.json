@@ -54,7 +54,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "envio": " 0.0.30-beta.txOrigin",
+    "envio": "0.0.0-main-20240212083047-f3dea232",
     "viem": "1.16.6"
   }
 }
