@@ -1,3 +1,5 @@
+import { performance } from 'perf_hooks';
+
 import {
   LockupV20Contract_CreateLockupLinearStream_handlerAsync as HandlerLinearAsync_V20,
   LockupV20Contract_CreateLockupLinearStream_loader as LoaderLinear_V20,
@@ -49,6 +51,7 @@ function loader(input: CreateLinearLoader | CreateDynamicLoader) {
 }
 
 async function handlerDynamic(input: CreateDynamicHandler) {
+  const startTime = performance.now();
   const { context, event } = input;
 
   /** ------- Initialize -------- */
@@ -134,9 +137,12 @@ async function handlerDynamic(input: CreateDynamicHandler) {
   await context.Batcher.set(batcher);
   await context.Stream.set(stream);
   await context.Watcher.set(watcher);
+  const endTime = performance.now();
+  console.warn(`handler DYNAMIC: Execution time: ${endTime - startTime} milliseconds`);
 }
 
 async function handlerLinear(input: CreateLinearHandler) {
+  const startTime = performance.now();
   const { context, event } = input;
 
   /** ------- Initialize -------- */
@@ -216,6 +222,9 @@ async function handlerLinear(input: CreateLinearHandler) {
   await context.Batcher.set(batcher);
   await context.Stream.set(stream);
   await context.Watcher.set(watcher);
+
+  const endTime = performance.now();
+  console.warn(`handler LINEAR: Execution time: ${endTime - startTime} milliseconds`);
 }
 
 LoaderDynamic_V20(loader);
